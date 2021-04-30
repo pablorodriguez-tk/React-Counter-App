@@ -1,4 +1,4 @@
-const getImagen = async () => {
+export const getImagen = async () => {
   try {
     const apiKey = "hNWBClACA4E3ZoDddHWTP4GGw5WPgpDC";
     const resp = await fetch(
@@ -6,12 +6,9 @@ const getImagen = async () => {
     );
     const { data } = await resp.json();
     const { url } = data.images.original;
-    const img = document.createElement("img");
-    document.body.append(img);
-    img.src = url;
+
+    return url;
   } catch (error) {
-    console.error(error);
+    return "No existe";
   }
 };
-
-getImagen();
